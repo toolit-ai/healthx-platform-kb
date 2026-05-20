@@ -16,9 +16,19 @@ export const metadata: Metadata = {
   generator: 'Next.js',
 }
 
+export const viewport = {
+  themeColor: '#f3eee5',
+}
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+        <link href="https://api.fontshare.com/v2/css?f[]=geist@400,500,600,700&f[]=geist-mono@400,500,600,700&display=swap" rel="stylesheet" />
+      </head>
       <body className="min-h-screen flex flex-col bg-background text-fg">
         <header className="sticky top-0 z-50 border-b border-line bg-background shadow-sm">
           <div className="mx-auto max-w-4xl px-6 py-4 flex items-baseline justify-between gap-4">

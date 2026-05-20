@@ -2,11 +2,11 @@
 
 HealthX Agentic Knowledge Base — architecture, agent catalog, AAA harness reference, and operational guides for the [healthx-web-app](https://github.com/toolit-ai/healthx-web-app) platform.
 
-Built with **Next.js 15 (App Router) + Nextra 4** for Vercel-style documentation. Deployed as a static export to GitHub Pages.
+Built with **Next.js 15 (App Router)** for static export to GitHub Pages.
 
 ## Status
 
-Phase 0 — bootstrap. The full 14-chapter architecture spec is being ported in alongside the engine work.
+v1.0.0 — Full 14-chapter architecture spec, agent catalog, schema registry, harness reference, and 16 pay-practice playbooks ported.
 
 ## Local development
 
@@ -22,6 +22,9 @@ pnpm build        # → out/
 
 Push to `main` → GitHub Actions builds and publishes to `https://toolit-ai.github.io/healthx-platform-kb/`.
 
-## Companion app
+## Companion projects
 
-The runnable platform lives at [toolit-ai.github.io/healthx-web-app](https://toolit-ai.github.io/healthx-web-app/) and shares design tokens (`@healthx/tokens`), typography (Geist), and canonical URL helpers with this docs site.
+- [healthx-web-app](https://toolit-ai.github.io/healthx-web-app/) — Browser-native AAA pipeline (React/Vite)
+- [bsmh-agentic-system](https://github.com/SnehashisPattanayak/bsmh-agentic-system) — Python LangGraph execution engine
+
+Maintainer — Snehashis Pattanayak : BSMH Higher Code Initiative

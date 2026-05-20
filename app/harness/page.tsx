@@ -1,72 +1,90 @@
 import { readFileSync } from 'fs'
+import { join } from 'path'
 import Link from 'next/link'
 
-const yamlPath = '/Users/rishabharya/Desktop/bsmh-workspace/healthx-web-app/src/config/harness.default.yaml'
-
 export default function HarnessPage() {
-  const content = readFileSync(yamlPath, 'utf-8')
+  let yaml = ''
+  try {
+    yaml = readFileSync(join(process.cwd(), '..', 'healthx-web-app', 'src', 'config', 'harness.default.yaml'), 'utf-8')
+  } catch {
+    yaml = '# Harness config not found'
+  }
 
   return (
     <main className="mx-auto max-w-4xl px-6 py-16">
-      <p className="font-mono text-xs uppercase tracking-widest text-muted">reference</p>
+      <p className="font-mono text-xs uppercase tracking-widest text-muted">Reference</p>
       <h1 className="mt-3 text-3xl font-semibold tracking-tight">AAA Harness</h1>
-      <p className="mt-4 max-w-2xl text-lg text-muted">
-        The harness YAML controls model pins, parallelism caps, gate behavior, deploy targets, and
-        node-level overrides.
+      <p className="mt-4 text-muted">
+        One YAML controls model pins, parallelism caps, gate behavior, and deploy targets — overridable at run-level and per-node.
       </p>
 
-      <section className="mt-10 space-y-8">
-        <div className="rounded-lg border border-line bg-card p-0 overflow-hidden">
-          <div className="border-b border-line px-4 py-2 text-xs font-mono uppercase tracking-widest text-muted">
-            harness.default.yaml
-          </div>
-          <pre className="p-6 text-sm leading-loose whitespace-pre-wrap break-words overflow-x-auto">
-            {content}
+      <section className="mt-10 space-y-6">
+        <div className="rounded-lg border border-line bg-card p-5">
+          <h2 className="text-base font-semibold">Default Configuration</h2>
+          <p className="mt-1 text-sm text-muted">Source: healthx-web-app/src/config/harness.default.yaml</p>
+          <pre className="mt-4 rounded-lg bg-muted p-4 overflow-x-auto text-xs leading-relaxed">
+            <code>{yaml}</code>
           </pre>
         </div>
 
-        <div className="space-y-4">
-          <h2 className="text-xl font-semibold">Schema Sections</h2>
-          <dl className="space-y-4 text-sm">
-            <div className="rounded-lg border border-line bg-card p-4">
-              <dt className="font-semibold">arc</dt>
-              <dd className="mt-1 text-muted">Phases, adapt-on-fail behavior, and deploy target.</dd>
-            </div>
-            <div className="rounded-lg border border-line bg-card p-4">
-              <dt className="font-semibold">llm</dt>
-              <dd className="mt-1 text-muted">Default provider, model pins per task type, pinned date, and rate limits.</dd>
-            </div>
-            <div className="rounded-lg border border-line bg-card p-4">
-              <dt className="font-semibold">embeddings</dt>
-              <dd className="mt-1 text-muted">Embedding provider, model, and static index path.</dd>
-            </div>
-            <div className="rounded-lg border border-line bg-card p-4">
-              <dt className="font-semibold">parallelism</dt>
-              <dd className="mt-1 text-muted">Concurrency caps for EDA, DQ, document processing, and rule batches.</dd>
-            </div>
-            <div className="rounded-lg border border-line bg-card p-4">
-              <dt className="font-semibold">gates</dt>
-              <dd className="mt-1 text-muted">Human review gates: semantic mapping, DQ, BL-EDA synthesis, and report QA.</dd>
-            </div>
-            <div className="rounded-lg border border-line bg-card p-4">
-              <dt className="font-semibold">io</dt>
-              <dd className="mt-1 text-muted">File picker, demo mode, and supported input formats.</dd>
-            </div>
-            <div className="rounded-lg border border-line bg-card p-4">
-              <dt className="font-semibold">reporting</dt>
-              <dd className="mt-1 text-muted">Output formats, unverified claim handling, and executive report sequencing.</dd>
-            </div>
-            <div className="rounded-lg border border-line bg-card p-4">
-              <dt className="font-semibold">observability</dt>
-              <dd className="mt-1 text-muted">Log level, event emission, and HIPAA-adjacent redaction.</dd>
-            </div>
-            <div className="rounded-lg border border-line bg-card p-4">
-              <dt className="font-semibold">nodes</dt>
-              <dd className="mt-1 text-muted">Per-node overrides for rate limits, retry policies, batch sizes, and interrupts.</dd>
-            </div>
-          </dl>
+        <div className="rounded-lg border border-line bg-card p-5">
+          <h2 className="text-base font-semibold">Model Pins</h2>
+          <div className="mt-3 space-y-2">
+            {[
+              { task: 'extraction', model: 'claude-sonnet-4-6', purpose: 'Document chunking and rule extraction' },
+              { task: 'reasoning', model: 'claude-sonnet-4-6', purpose: 'Semantic mapping and narrative synthesis' },
+              { task: 'classification', model: 'claude-sonnet-4-6', purpose: 'Rule type and confidence scoring' },
+              { task: 'narrative', model: 'claude-sonnet-4-6', purpose: 'Report section generation' },
+            ].map((m) => (
+              <div key={m.task} className="flex items-center justify-between rounded bg-muted px-3 py-2 text-sm">
+                <span className="font-medium capitalize">{m.task}</span>
+                <span className="font-mono text-xs text-muted">{m.model}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="rounded-lg border border-line bg-card p-5">
+          <h2 className="text-base font-semibold">Parallelism Caps</h2>
+          <div className="mt-3 space-y-2">
+            {[
+              { point: 'Data profiling / DQ', max: 8 },
+              { point: 'Document processing', max: 6 },
+              { point: 'Semantic mapping', max: 4 },
+              { point: 'Rule normalization', max: 4 },
+              { point: 'BL-EDA checks', max: 10 },
+            ].map((p) => (
+              <div key={p.point} className="flex items-center justify-between rounded bg-muted px-3 py-2 text-sm">
+                <span>{p.point}</span>
+                <span className="font-mono text-xs">max {p.max}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="rounded-lg border border-line bg-card p-5">
+          <h2 className="text-base font-semibold">Gate Behaviors</h2>
+          <div className="mt-3 space-y-2">
+            {[
+              { gate: 'BL Mapping Review Gate', default: 'block', options: 'block, warn, skip' },
+              { gate: 'DQ Gate', default: 'block', options: 'block, warn' },
+              { gate: 'Report QA Gate', default: 'warn', options: 'block, warn, skip' },
+              { gate: 'Export Gate', default: 'block', options: 'block, warn' },
+            ].map((g) => (
+              <div key={g.gate} className="flex items-center justify-between rounded bg-muted px-3 py-2 text-sm">
+                <span>{g.gate}</span>
+                <span className="font-mono text-xs text-muted">default={g.default} [{g.options}]</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
+
+      <div className="mt-12 border-t border-line pt-6">
+        <Link href="/" className="font-mono text-xs text-brand hover:underline">
+          ← Back to Home
+        </Link>
+      </div>
     </main>
   )
 }

@@ -1,0 +1,88 @@
+/* HealthX KB — Phase 0 minimal stylesheet.
+ * Phase 8 swaps this for Nextra theme + Tailwind on the full 14-chapter port.
+ */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--healthx-font-sans);
+  background: hsl(var(--healthx-background));
+  color: hsl(var(--healthx-foreground));
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: 100%;
+}
+
+code,
+pre {
+  font-family: var(--healthx-font-mono);
+}
+
+a {
+  color: hsl(var(--healthx-primary));
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.font-mono {
+  font-family: var(--healthx-font-mono);
+}
+
+.text-brand        { color: hsl(var(--healthx-primary)); }
+.bg-brand          { background: hsl(var(--healthx-primary)); }
+.text-brand-foreground { color: hsl(var(--healthx-primary-foreground)); }
+.border-brand      { border-color: hsl(var(--healthx-primary)); }
+.text-fg           { color: hsl(var(--healthx-foreground)); }
+.text-muted        { color: hsl(var(--healthx-muted-foreground)); }
+.bg-card           { background: hsl(var(--healthx-card)); }
+.border-line       { border-color: hsl(var(--healthx-border)); }
+
+.mx-auto           { margin-left: auto; margin-right: auto; }
+.max-w-2xl         { max-width: 42rem; }
+.max-w-4xl         { max-width: 56rem; }
+.px-6              { padding-left: 1.5rem; padding-right: 1.5rem; }
+.py-2              { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.py-16             { padding-top: 4rem; padding-bottom: 4rem; }
+.p-5               { padding: 1.25rem; }
+.pt-6              { padding-top: 1.5rem; }
+.mt-2              { margin-top: 0.5rem; }
+.mt-3              { margin-top: 0.75rem; }
+.mt-4              { margin-top: 1rem; }
+.mt-10             { margin-top: 2.5rem; }
+.mt-14             { margin-top: 3.5rem; }
+.mt-20             { margin-top: 5rem; }
+.text-xs           { font-size: 0.75rem; line-height: 1rem; }
+.text-sm           { font-size: 0.875rem; line-height: 1.25rem; }
+.text-lg           { font-size: 1.125rem; line-height: 1.75rem; }
+.text-4xl          { font-size: 2.25rem; line-height: 2.5rem; }
+.font-medium       { font-weight: 500; }
+.font-semibold     { font-weight: 600; }
+.tracking-tight    { letter-spacing: -0.025em; }
+.tracking-widest   { letter-spacing: 0.1em; }
+.uppercase         { text-transform: uppercase; }
+.rounded-md        { border-radius: 0.375rem; }
+.rounded-lg        { border-radius: 0.5rem; }
+.border            { border-width: 1px; border-style: solid; }
+.border-t          { border-top-width: 1px; border-top-style: solid; }
+.inline-block      { display: inline-block; }
+.flex              { display: flex; }
+.flex-wrap         { flex-wrap: wrap; }
+.items-baseline    { align-items: baseline; }
+.justify-between   { justify-content: space-between; }
+.gap-3             { gap: 0.75rem; }
+.gap-4             { gap: 1rem; }
+.grid              { display: grid; }
+.hover\:underline:hover { text-decoration: underline; }
+
+@media (min-width: 640px) {
+  .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.text-\[10px\] { font-size: 10px; }

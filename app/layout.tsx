@@ -39,16 +39,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <Link href="/" className="decoration-none text-muted hover:underline">
                 Home
               </Link>
-              <Link href="/architecture" className="decoration-none text-muted hover:underline">
+              <Link href="/architecture/" className="decoration-none text-muted hover:underline">
                 Architecture
               </Link>
-              <Link href="/harness" className="decoration-none text-muted hover:underline">
+              <Link href="/harness/" className="decoration-none text-muted hover:underline">
                 Harness
               </Link>
-              <Link href="/reference/agents" className="decoration-none text-muted hover:underline">
+              <Link href="/reference/agents/" className="decoration-none text-muted hover:underline">
                 Reference
               </Link>
-              <Link href="/playbooks" className="decoration-none text-muted hover:underline">
+              <Link href="/playbooks/" className="decoration-none text-muted hover:underline">
                 Playbooks
               </Link>
             </nav>
@@ -57,7 +57,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <div className="flex-1">{children}</div>
         <footer className="border-t border-line mt-20 py-6 text-xs text-muted">
           <div className="mx-auto max-w-4xl px-6 flex flex-wrap justify-between gap-2">
-            <span>v1.0.0</span>
+            <span>v1.1.0</span>
             <span>Maintainer — Snehashis Pattanayak : BSMH Higher Code Initiative</span>
           </div>
         </footer>

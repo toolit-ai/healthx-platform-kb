@@ -39,13 +39,8 @@ export default async function PlaybookPage({ params }: { params: Promise<{ slug:
     notFound()
   }
 
-  const filePath = join('/tmp', 'swarm-output', 'playbooks', 'pages', `${slug}.md`)
-  let content: string
-  try {
-    content = readFileSync(filePath, 'utf-8')
-  } catch {
-    content = `# ${slug.replace(/_/g, ' ')}\n\nPlaybook content not yet available.`
-  }
+  const filePath = join(process.cwd(), 'content', 'playbooks', `${slug}.md`)
+  const content = readFileSync(filePath, 'utf-8')
 
   const html = simpleMarkdownToHtml(content)
 

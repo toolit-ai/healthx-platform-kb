@@ -1,0 +1,1220 @@
+{
+  "schemas": [
+    {
+      "name": "SubStageProgress",
+      "file": "schemas/api.py",
+      "fields": [
+        "name",
+        "status"
+      ],
+      "purpose": "API request and response schemas (shared between routes and Streamlit)."
+    },
+    {
+      "name": "StageProgress",
+      "file": "schemas/api.py",
+      "fields": [
+        "stage_name",
+        "status",
+        "sub_stages"
+      ],
+      "purpose": "API request and response schemas (shared between routes and Streamlit)."
+    },
+    {
+      "name": "StageProgressSnapshot",
+      "file": "schemas/api.py",
+      "fields": [
+        "run_id",
+        "progress_pct",
+        "stages",
+        "blocked_by_review",
+        "review_type",
+        "snapshot_at"
+      ],
+      "purpose": "API request and response schemas (shared between routes and Streamlit)."
+    },
+    {
+      "name": "StatusChatRequest",
+      "file": "schemas/api.py",
+      "fields": [
+        "run_id",
+        "question_type"
+      ],
+      "purpose": "API request and response schemas (shared between routes and Streamlit)."
+    },
+    {
+      "name": "StatusChatResponse",
+      "file": "schemas/api.py",
+      "fields": [
+        "run_id",
+        "question_type",
+        "answer",
+        "snapshot"
+      ],
+      "purpose": "API request and response schemas (shared between routes and Streamlit)."
+    },
+    {
+      "name": "ArtifactRef",
+      "file": "schemas/artifacts.py",
+      "fields": [
+        "artifact_id",
+        "artifact_type",
+        "uri",
+        "content_type",
+        "created_at",
+        "row_count",
+        "file_size_bytes",
+        "checksum_sha256",
+        "summary"
+      ],
+      "purpose": "ArtifactRef and artifact schemas."
+    },
+    {
+      "name": "ThresholdCheckParams",
+      "file": "schemas/bl_eda.py",
+      "fields": [
+        "check_family",
+        "threshold_value",
+        "threshold_unit",
+        "comparison",
+        "per"
+      ],
+      "purpose": "BL-EDA job and result schemas."
+    },
+    {
+      "name": "StackingCheckParams",
+      "file": "schemas/bl_eda.py",
+      "fields": [
+        "check_family",
+        "allowed_combinations",
+        "prohibited_combinations",
+        "anti_pyramiding_rule"
+      ],
+      "purpose": "BL-EDA job and result schemas."
+    },
+    {
+      "name": "SequenceCheckParams",
+      "file": "schemas/bl_eda.py",
+      "fields": [
+        "check_family",
+        "sequence_steps",
+        "max_gap_hours",
+        "min_gap_hours"
+      ],
+      "purpose": "BL-EDA job and result schemas."
+    },
+    {
+      "name": "FormulaCheckParams",
+      "file": "schemas/bl_eda.py",
+      "fields": [
+        "check_family",
+        "formula_expression",
+        "tolerance_pct"
+      ],
+      "purpose": "BL-EDA job and result schemas."
+    },
+    {
+      "name": "SegmentVarianceParams",
+      "file": "schemas/bl_eda.py",
+      "fields": [
+        "check_family",
+        "segment_columns",
+        "metric",
+        "variance_threshold_pct",
+        "CheckFamilyParams"
+      ],
+      "purpose": "BL-EDA job and result schemas."
+    },
+    {
+      "name": "UntestableRule",
+      "file": "schemas/bl_eda.py",
+      "fields": [
+        "rule_id",
+        "rule_text",
+        "reason",
+        "pay_practice"
+      ],
+      "purpose": "BL-EDA job and result schemas."
+    },
+    {
+      "name": "BLEDAJob",
+      "file": "schemas/bl_eda.py",
+      "fields": [
+        "job_id",
+        "rule_ids",
+        "pay_practice",
+        "check_family",
+        "check_name",
+        "target_tables",
+        "target_columns",
+        "metrics",
+        "dimensions",
+        "filters",
+        "parameters",
+        "expected_outputs",
+        "priority"
+      ],
+      "purpose": "BL-EDA job and result schemas."
+    },
+    {
+      "name": "BLEDAWorkplan",
+      "file": "schemas/bl_eda.py",
+      "fields": [
+        "workplan_id",
+        "run_id",
+        "rule_catalog_id",
+        "discovered_pay_practices",
+        "jobs",
+        "untestable_rules",
+        "review_required_rules",
+        "created_at"
+      ],
+      "purpose": "BL-EDA job and result schemas."
+    },
+    {
+      "name": "BLEDAJobGroup",
+      "file": "schemas/bl_eda.py",
+      "fields": [
+        "pay_practice",
+        "jobs",
+        "workplan_id"
+      ],
+      "purpose": "BL-EDA job and result schemas."
+    },
+    {
+      "name": "ScenarioAssumptions",
+      "file": "schemas/bl_eda.py",
+      "fields": [
+        "scenario_name",
+        "description",
+        "rule_basis",
+        "parameters"
+      ],
+      "purpose": "BL-EDA job and result schemas."
+    },
+    {
+      "name": "ScenarioResult",
+      "file": "schemas/bl_eda.py",
+      "fields": [
+        "scenario_name",
+        "assumptions",
+        "cost_impact",
+        "hours_impact",
+        "employee_impact",
+        "affected_practices",
+        "metric_values"
+      ],
+      "purpose": "BL-EDA job and result schemas."
+    },
+    {
+      "name": "RankedVariable",
+      "file": "schemas/bl_eda.py",
+      "fields": [
+        "table_name",
+        "column",
+        "var_role",
+        "importance",
+        "reasons"
+      ],
+      "purpose": "BL-EDA job and result schemas."
+    },
+    {
+      "name": "PanelSpec",
+      "file": "schemas/bl_eda.py",
+      "fields": [
+        "table_name",
+        "entity_key",
+        "time_column",
+        "time_grain",
+        "n_periods"
+      ],
+      "purpose": "BL-EDA job and result schemas."
+    },
+    {
+      "name": "KeyVariables",
+      "file": "schemas/bl_eda.py",
+      "fields": [
+        "run_id",
+        "measures",
+        "dimensions",
+        "time_columns",
+        "entity_keys",
+        "panels",
+        "generated_at"
+      ],
+      "purpose": "BL-EDA job and result schemas."
+    },
+    {
+      "name": "KeyFactor",
+      "file": "schemas/bl_eda.py",
+      "fields": [
+        "factor_id",
+        "factor_type",
+        "table_name",
+        "measure",
+        "dimension",
+        "secondary_measure",
+        "time_column",
+        "entity_key",
+        "effect_size",
+        "direction",
+        "tier",
+        "pay_practice",
+        "summary"
+      ],
+      "purpose": "BL-EDA job and result schemas."
+    },
+    {
+      "name": "KeyFactors",
+      "file": "schemas/bl_eda.py",
+      "fields": [
+        "run_id",
+        "factors",
+        "full_tier_count",
+        "appendix_tier_count",
+        "generated_at"
+      ],
+      "purpose": "BL-EDA job and result schemas."
+    },
+    {
+      "name": "DocumentMetadata",
+      "file": "schemas/documents.py",
+      "fields": [
+        "document_type",
+        "market",
+        "cba_subtype",
+        "pay_practice_hint",
+        "requires_human_review_all_rules",
+        "relative",
+        "parts",
+        "top",
+        "market",
+        "cba_subtype",
+        "document_type"
+      ],
+      "purpose": "Document intelligence schemas — ingestion, extraction, and rule models."
+    },
+    {
+      "name": "DocumentChunk",
+      "file": "schemas/documents.py",
+      "fields": [
+        "chunk_id",
+        "document_id",
+        "text",
+        "section_path",
+        "chunk_index",
+        "token_count",
+        "is_table",
+        "overlap_with_prev",
+        "page_number"
+      ],
+      "purpose": "Document intelligence schemas — ingestion, extraction, and rule models."
+    },
+    {
+      "name": "ExtractedTable",
+      "file": "schemas/documents.py",
+      "fields": [
+        "table_id",
+        "document_id",
+        "json_repr",
+        "nl_repr",
+        "page_number",
+        "section_path",
+        "chunk_id"
+      ],
+      "purpose": "Document intelligence schemas — ingestion, extraction, and rule models."
+    },
+    {
+      "name": "ApplicabilityScope",
+      "file": "schemas/documents.py",
+      "fields": [
+        "markets",
+        "cba_names",
+        "workforce_types",
+        "employee_classes",
+        "date_effective",
+        "date_expires",
+        "extra_scope"
+      ],
+      "purpose": "Document intelligence schemas — ingestion, extraction, and rule models."
+    },
+    {
+      "name": "RuleThreshold",
+      "file": "schemas/documents.py",
+      "fields": [
+        "field",
+        "operator",
+        "value",
+        "unit",
+        "description"
+      ],
+      "purpose": "Document intelligence schemas — ingestion, extraction, and rule models."
+    },
+    {
+      "name": "RuleCondition",
+      "file": "schemas/documents.py",
+      "fields": [
+        "condition_text",
+        "field",
+        "operator",
+        "value"
+      ],
+      "purpose": "Document intelligence schemas — ingestion, extraction, and rule models."
+    },
+    {
+      "name": "RuleException",
+      "file": "schemas/documents.py",
+      "fields": [
+        "exception_text",
+        "applies_to"
+      ],
+      "purpose": "Document intelligence schemas — ingestion, extraction, and rule models."
+    },
+    {
+      "name": "RuleFormula",
+      "file": "schemas/documents.py",
+      "fields": [
+        "formula_text",
+        "formula_latex",
+        "variables"
+      ],
+      "purpose": "Document intelligence schemas — ingestion, extraction, and rule models."
+    },
+    {
+      "name": "ExtractedRule",
+      "file": "schemas/documents.py",
+      "fields": [
+        "rule_id",
+        "run_id",
+        "document_id",
+        "source_chunk_ids",
+        "primary_chunk_id",
+        "rule_text",
+        "rule_type",
+        "citation_status",
+        "citation_text",
+        "applicability",
+        "conditions",
+        "exceptions",
+        "thresholds",
+        "formulas",
+        "governed_data_concepts",
+        "candidate_tables",
+        "confidence",
+        "testability",
+        "extraction_warnings",
+        "requires_human_review",
+        "extracted_at"
+      ],
+      "purpose": "Document intelligence schemas — ingestion, extraction, and rule models."
+    },
+    {
+      "name": "DocumentProcessingResult",
+      "file": "schemas/documents.py",
+      "fields": [
+        "document_id",
+        "run_id",
+        "file_path",
+        "document_type",
+        "market",
+        "page_count",
+        "chunk_count",
+        "table_count",
+        "rule_count",
+        "ocr_used",
+        "llm_vision_used",
+        "processing_errors",
+        "processed_at"
+      ],
+      "purpose": "Document intelligence schemas — ingestion, extraction, and rule models."
+    },
+    {
+      "name": "DocumentQualityReport",
+      "file": "schemas/documents.py",
+      "fields": [
+        "run_id",
+        "document_count",
+        "total_pages",
+        "total_chunks",
+        "total_tables",
+        "total_rules",
+        "rules_with_citations",
+        "citation_coverage_pct",
+        "rules_by_confidence",
+        "rules_requiring_review",
+        "processing_errors",
+        "gate_passed",
+        "generated_at"
+      ],
+      "purpose": "Document intelligence schemas — ingestion, extraction, and rule models."
+    },
+    {
+      "name": "ColumnProfile",
+      "file": "schemas/dq.py",
+      "fields": [
+        "name",
+        "dtype",
+        "null_count",
+        "null_pct",
+        "unique_count",
+        "sample_values",
+        "numeric_min",
+        "numeric_max",
+        "numeric_mean",
+        "numeric_std",
+        "date_min",
+        "date_max",
+        "p1",
+        "p5",
+        "p25",
+        "p50",
+        "p75",
+        "p95",
+        "p99",
+        "iqr",
+        "skew",
+        "cv",
+        "zero_count",
+        "negative_count",
+        "iqr_outlier_count",
+        "iqr_outlier_pct",
+        "zscore_gt3_count",
+        "mode_share",
+        "entropy",
+        "top_k_freq",
+        "rare_level_count",
+        "span_days",
+        "distinct_periods",
+        "has_gaps",
+        "var_role"
+      ],
+      "purpose": "DQ, EDA profile, and data catalog schemas."
+    },
+    {
+      "name": "TableProfile",
+      "file": "schemas/dq.py",
+      "fields": [
+        "table_name",
+        "source_file",
+        "row_count",
+        "column_count",
+        "columns",
+        "profiled_at",
+        "entity_key_candidates",
+        "time_column",
+        "time_grain",
+        "is_longitudinal",
+        "n_periods"
+      ],
+      "purpose": "DQ, EDA profile, and data catalog schemas."
+    },
+    {
+      "name": "DataCatalogEntry",
+      "file": "schemas/dq.py",
+      "fields": [
+        "table_name",
+        "source_file",
+        "row_count",
+        "column_names",
+        "file_format"
+      ],
+      "purpose": "DQ, EDA profile, and data catalog schemas."
+    },
+    {
+      "name": "DQIssue",
+      "file": "schemas/dq.py",
+      "fields": [
+        "issue_id",
+        "run_id",
+        "table_name",
+        "column_name",
+        "check_type",
+        "severity",
+        "description",
+        "affected_row_count",
+        "status",
+        "waive_notes",
+        "waived_at"
+      ],
+      "purpose": "DQ, EDA profile, and data catalog schemas."
+    },
+    {
+      "name": "DQResult",
+      "file": "schemas/dq.py",
+      "fields": [
+        "run_id",
+        "table_name",
+        "row_count",
+        "issue_count",
+        "critical_count",
+        "high_count",
+        "issues",
+        "passed",
+        "checked_at"
+      ],
+      "purpose": "DQ, EDA profile, and data catalog schemas."
+    },
+    {
+      "name": "RelationshipIssue",
+      "file": "schemas/dq.py",
+      "fields": [
+        "issue_id",
+        "check_type",
+        "description",
+        "severity",
+        "table_name",
+        "related_table",
+        "affected_count"
+      ],
+      "purpose": "DQ, EDA profile, and data catalog schemas."
+    },
+    {
+      "name": "RelationshipResult",
+      "file": "schemas/dq.py",
+      "fields": [
+        "run_id",
+        "issues",
+        "checked_at"
+      ],
+      "purpose": "DQ, EDA profile, and data catalog schemas."
+    },
+    {
+      "name": "DQGateStatus",
+      "file": "schemas/dq.py",
+      "fields": [
+        "run_id",
+        "gate_passed",
+        "blocking_issue_count",
+        "total_issue_count",
+        "critical_count",
+        "high_count",
+        "medium_count",
+        "low_count",
+        "waived_count"
+      ],
+      "purpose": "DQ, EDA profile, and data catalog schemas."
+    },
+    {
+      "name": "ColumnPairAssoc",
+      "file": "schemas/dq.py",
+      "fields": [
+        "col_a",
+        "col_b",
+        "assoc_type",
+        "value",
+        "p_value",
+        "significant"
+      ],
+      "purpose": "DQ, EDA profile, and data catalog schemas."
+    },
+    {
+      "name": "BivariateProfile",
+      "file": "schemas/dq.py",
+      "fields": [
+        "table_name",
+        "measure_correlations",
+        "vif_scores",
+        "dimension_measure_assoc",
+        "dimension_pair_assoc",
+        "high_correlation_pairs",
+        "profiled_at"
+      ],
+      "purpose": "DQ, EDA profile, and data catalog schemas."
+    },
+    {
+      "name": "PayCodeConcentration",
+      "file": "schemas/dq.py",
+      "fields": [
+        "pay_code",
+        "total_hours",
+        "total_cost",
+        "employee_count",
+        "pct_of_total_hours",
+        "pct_of_total_cost",
+        "cumulative_pct_hours"
+      ],
+      "purpose": "DQ, EDA profile, and data catalog schemas."
+    },
+    {
+      "name": "TemporalPeriodStat",
+      "file": "schemas/dq.py",
+      "fields": [
+        "period",
+        "total_hours",
+        "total_cost",
+        "employee_count",
+        "period_over_period_hours_pct"
+      ],
+      "purpose": "DQ, EDA profile, and data catalog schemas."
+    },
+    {
+      "name": "SegmentHealthScore",
+      "file": "schemas/dq.py",
+      "fields": [
+        "segment_column",
+        "segment_value",
+        "employee_count",
+        "completeness_score",
+        "dq_score",
+        "avg_hours_per_employee"
+      ],
+      "purpose": "DQ, EDA profile, and data catalog schemas."
+    },
+    {
+      "name": "WorkforceContextProfile",
+      "file": "schemas/dq.py",
+      "fields": [
+        "run_id",
+        "tables_analyzed",
+        "pay_code_concentration",
+        "top_codes_80pct_threshold",
+        "temporal_period_stats",
+        "time_grain",
+        "segment_health_scores",
+        "hour_distribution",
+        "detected_payroll_table",
+        "detected_value_column",
+        "detected_hours_column",
+        "detected_pay_code_column",
+        "profiled_at"
+      ],
+      "purpose": "DQ, EDA profile, and data catalog schemas."
+    },
+    {
+      "name": "LedgerEvent",
+      "file": "schemas/events.py",
+      "fields": [
+        "event_id",
+        "run_id",
+        "tenant_id",
+        "event_type",
+        "node_name",
+        "status",
+        "message",
+        "payload",
+        "artifact_ids",
+        "created_at"
+      ],
+      "purpose": "Execution ledger event contract."
+    },
+    {
+      "name": "Citation",
+      "file": "schemas/findings.py",
+      "fields": [
+        "document_id",
+        "document_filename",
+        "citation_text",
+        "section_path",
+        "chunk_id",
+        "rule_id"
+      ],
+      "purpose": "BL-EDA finding and insight schemas."
+    },
+    {
+      "name": "ChartData",
+      "file": "schemas/findings.py",
+      "fields": [
+        "chart_kind",
+        "title",
+        "x_label",
+        "y_label",
+        "series",
+        "caption"
+      ],
+      "purpose": "BL-EDA finding and insight schemas."
+    },
+    {
+      "name": "BLEDAFinding",
+      "file": "schemas/findings.py",
+      "fields": [
+        "finding_id",
+        "run_id",
+        "pay_practice",
+        "check_family",
+        "check_name",
+        "status",
+        "severity",
+        "title",
+        "finding",
+        "metric_values",
+        "charts",
+        "affected_count",
+        "affected_pct",
+        "dollar_impact",
+        "hours_impact",
+        "dimensions",
+        "evidence_ref",
+        "source_rule_ids",
+        "citations",
+        "recommended_action",
+        "discussion_questions",
+        "rule_conflict",
+        "rule_conflict_priority"
+      ],
+      "purpose": "BL-EDA finding and insight schemas."
+    },
+    {
+      "name": "InsightCard",
+      "file": "schemas/findings.py",
+      "fields": [
+        "card_id",
+        "run_id",
+        "pay_practice",
+        "headline",
+        "body",
+        "finding_ids",
+        "severity",
+        "recommended_action"
+      ],
+      "purpose": "BL-EDA finding and insight schemas."
+    },
+    {
+      "name": "BLEDAResult",
+      "file": "schemas/findings.py",
+      "fields": [
+        "result_id",
+        "run_id",
+        "workplan_id",
+        "findings",
+        "insight_cards",
+        "pay_practices_covered",
+        "total_findings",
+        "critical_count",
+        "high_count",
+        "medium_count",
+        "low_count",
+        "untestable_count"
+      ],
+      "purpose": "BL-EDA finding and insight schemas."
+    },
+    {
+      "name": "PayProvision",
+      "file": "schemas/pay_policy.py",
+      "fields": [
+        "pay_metric",
+        "policy_authority",
+        "provision_status",
+        "provision_text",
+        "flsa_concern",
+        "flsa_concern_note",
+        "anti_pyramiding_language",
+        "min_hours",
+        "rate_multiplier",
+        "premium_window_hours",
+        "guarantee_period_hours",
+        "threshold_notes",
+        "citation_text",
+        "confidence"
+      ],
+      "purpose": "Pydantic schemas for pay policy and CBA document intelligence."
+    },
+    {
+      "name": "StackingRule",
+      "file": "schemas/pay_policy.py",
+      "fields": [
+        "premium_a",
+        "premium_b",
+        "relationship",
+        "condition_text",
+        "citation_text"
+      ],
+      "purpose": "Pydantic schemas for pay policy and CBA document intelligence."
+    },
+    {
+      "name": "VariationObservation",
+      "file": "schemas/pay_policy.py",
+      "fields": [
+        "observation_type",
+        "observation_text",
+        "affected_markets",
+        "affected_workforce_types",
+        "severity",
+        "is_llm_generated"
+      ],
+      "purpose": "Pydantic schemas for pay policy and CBA document intelligence."
+    },
+    {
+      "name": "PayPolicyLLMResponse",
+      "file": "schemas/pay_policy.py",
+      "fields": [
+        "provisions",
+        "stacking_rules"
+      ],
+      "purpose": "Pydantic schemas for pay policy and CBA document intelligence."
+    },
+    {
+      "name": "VariationObservationsLLMResponse",
+      "file": "schemas/pay_policy.py",
+      "fields": [
+        "observations"
+      ],
+      "purpose": "Pydantic schemas for pay policy and CBA document intelligence."
+    },
+    {
+      "name": "DocumentCitation",
+      "file": "schemas/rag.py",
+      "fields": [
+        "chunk_id",
+        "document_id",
+        "filename",
+        "page_number",
+        "section_path",
+        "text_excerpt",
+        "relevance_score"
+      ],
+      "purpose": "RAG query and response schemas."
+    },
+    {
+      "name": "DocumentRAGChatRequest",
+      "file": "schemas/rag.py",
+      "fields": [
+        "run_id",
+        "question",
+        "top_k",
+        "score_threshold"
+      ],
+      "purpose": "RAG query and response schemas."
+    },
+    {
+      "name": "DocumentRAGAnswer",
+      "file": "schemas/rag.py",
+      "fields": [
+        "answer",
+        "answerable",
+        "confidence",
+        "corpus_id",
+        "corpus_readiness_pct",
+        "citations",
+        "limitations"
+      ],
+      "purpose": "RAG query and response schemas."
+    },
+    {
+      "name": "CorpusStatusResponse",
+      "file": "schemas/rag.py",
+      "fields": [
+        "run_id",
+        "corpus_id",
+        "status",
+        "readiness_pct",
+        "indexed_count",
+        "total_count",
+        "collection_name",
+        "failed_documents"
+      ],
+      "purpose": "RAG query and response schemas."
+    },
+    {
+      "name": "ReindexRequest",
+      "file": "schemas/rag.py",
+      "fields": [
+        "document_id"
+      ],
+      "purpose": "RAG query and response schemas."
+    },
+    {
+      "name": "NormalizedRule",
+      "file": "schemas/rules.py",
+      "fields": [
+        "normalized_rule_id",
+        "rule_id",
+        "run_id",
+        "pay_practice",
+        "check_family",
+        "governed_data_concepts",
+        "candidate_tables",
+        "candidate_columns",
+        "normalization_confidence",
+        "testability",
+        "testability_reason",
+        "rule_conflict",
+        "rule_conflict_priority",
+        "conflict_rule_ids"
+      ],
+      "purpose": "Normalized rule schemas (post-semantic-mapping normalization)."
+    },
+    {
+      "name": "RunCreate",
+      "file": "schemas/run.py",
+      "fields": [
+        "data_input_path",
+        "documents_input_path",
+        "tenant_id",
+        "user_id"
+      ],
+      "purpose": "Run lifecycle schemas."
+    },
+    {
+      "name": "RunResponse",
+      "file": "schemas/run.py",
+      "fields": [
+        "run_id",
+        "status",
+        "tenant_id",
+        "user_id",
+        "data_input_path",
+        "documents_input_path",
+        "created_at",
+        "updated_at"
+      ],
+      "purpose": "Run lifecycle schemas."
+    },
+    {
+      "name": "RunStatusResponse",
+      "file": "schemas/run.py",
+      "fields": [
+        "run_id",
+        "status",
+        "current_node",
+        "data_input_path",
+        "documents_input_path",
+        "created_at",
+        "updated_at"
+      ],
+      "purpose": "Run lifecycle schemas."
+    },
+    {
+      "name": "RunSummary",
+      "file": "schemas/run.py",
+      "fields": [
+        "run_id",
+        "status",
+        "current_node",
+        "data_input_path",
+        "documents_input_path",
+        "created_at",
+        "updated_at"
+      ],
+      "purpose": "Run lifecycle schemas."
+    },
+    {
+      "name": "RunCancelResponse",
+      "file": "schemas/run.py",
+      "fields": [
+        "run_id",
+        "status",
+        "message"
+      ],
+      "purpose": "Run lifecycle schemas."
+    },
+    {
+      "name": "SemanticMapping",
+      "file": "schemas/semantic_mapping.py",
+      "fields": [
+        "mapping_id",
+        "rule_id",
+        "run_id",
+        "governed_data_concepts",
+        "candidate_tables",
+        "candidate_columns",
+        "pay_practices",
+        "check_families",
+        "mapping_confidence",
+        "mapping_rationale",
+        "requires_human_review",
+        "mapping_warnings",
+        "llm_model",
+        "raw_llm_response"
+      ],
+      "purpose": "Semantic mapping schemas."
+    },
+    {
+      "name": "SemanticMappingBatch",
+      "file": "schemas/semantic_mapping.py",
+      "fields": [
+        "batch_id",
+        "run_id",
+        "rule_ids",
+        "mappings"
+      ],
+      "purpose": "Semantic mapping schemas."
+    },
+    {
+      "name": "RunMetrics",
+      "file": "schemas/state.py",
+      "fields": [
+        "doc_count",
+        "page_count",
+        "chunk_count",
+        "rule_count",
+        "testable_rule_count",
+        "bl_eda_job_count",
+        "finding_count",
+        "insight_card_count",
+        "llm_call_count",
+        "llm_estimated_cost_usd"
+      ],
+      "purpose": "LangGraph state schemas for the validation and BL-EDA graph."
+    },
+    {
+      "name": "ReviewRequest",
+      "file": "schemas/state.py",
+      "fields": [
+        "review_id",
+        "review_type",
+        "payload",
+        "created_at"
+      ],
+      "purpose": "LangGraph state schemas for the validation and BL-EDA graph."
+    },
+    {
+      "name": "HumanDecision",
+      "file": "schemas/state.py",
+      "fields": [
+        "review_id",
+        "decision",
+        "notes",
+        "decided_at"
+      ],
+      "purpose": "LangGraph state schemas for the validation and BL-EDA graph."
+    },
+    {
+      "name": "ErrorRecord",
+      "file": "schemas/state.py",
+      "fields": [
+        "node_name",
+        "error_type",
+        "message",
+        "occurred_at"
+      ],
+      "purpose": "LangGraph state schemas for the validation and BL-EDA graph."
+    },
+    {
+      "name": "ValidationState",
+      "file": "schemas/state.py",
+      "fields": [
+        "run_id",
+        "tenant_id",
+        "user_id",
+        "status",
+        "current_node",
+        "completed_nodes",
+        "failed_node",
+        "data_input_path",
+        "documents_input_path",
+        "workspace_path",
+        "intake_manifest",
+        "data_catalog",
+        "data_catalog_ref",
+        "table_artifacts",
+        "eda_profile_refs",
+        "bivariate_profile_refs",
+        "dq_result_refs",
+        "dq_issues",
+        "relationship_result_ref",
+        "dq_gate_passed",
+        "workforce_context_ref",
+        "document_metadata_map",
+        "folder_validation_errors",
+        "document_refs",
+        "extracted_rule_refs",
+        "document_quality_report_ref",
+        "document_set_id",
+        "corpus_id",
+        "rag_ready",
+        "corpus_readiness_pct",
+        "pay_provisions_extracted",
+        "semantic_mapping_refs",
+        "normalized_rule_refs",
+        "rule_catalog_ref",
+        "semantic_mapping_ref",
+        "bl_eda_plan_ref",
+        "mapping_review_required",
+        "mapping_review_count",
+        "key_variables_ref",
+        "key_factors_ref",
+        "bl_eda_synthesis_ref",
+        "bl_eda_finding_refs",
+        "bl_eda_result_ref",
+        "bl_eda_narrative_ref",
+        "insight_cards_ref",
+        "report_section_plan_ref",
+        "deep_dive_report_ref",
+        "executive_report_ref",
+        "report_qa_ref",
+        "export_package_ref",
+        "review_requests",
+        "decisions",
+        "errors",
+        "metrics",
+        "discovered_pay_practices",
+        "temporal_scope_months",
+        "temporal_scope_mode"
+      ],
+      "purpose": "LangGraph state schemas for the validation and BL-EDA graph."
+    },
+    {
+      "name": "StructuredColumnProfile",
+      "file": "schemas/structured_intelligence.py",
+      "fields": [
+        "column_name",
+        "dtype",
+        "var_role",
+        "semantic_type",
+        "llm_column_label",
+        "null_count",
+        "null_pct",
+        "unique_count",
+        "is_unique",
+        "duplicate_count",
+        "format_violation_count",
+        "format_violation_pct",
+        "numeric_min",
+        "numeric_max",
+        "numeric_mean",
+        "skewness",
+        "iqr_outlier_pct",
+        "date_min",
+        "date_max",
+        "span_days",
+        "has_gaps",
+        "pareto_top_n",
+        "top_values_json"
+      ],
+      "purpose": "Pydantic v2 schemas for structured data intelligence profiling."
+    },
+    {
+      "name": "StructuredTableProfile",
+      "file": "schemas/structured_intelligence.py",
+      "fields": [
+        "table_name",
+        "row_count",
+        "column_count",
+        "completeness_score",
+        "is_longitudinal",
+        "time_column",
+        "time_grain",
+        "n_periods",
+        "date_range_start",
+        "date_range_end",
+        "llm_table_label",
+        "llm_table_description",
+        "high_correlation_pair_count",
+        "columns"
+      ],
+      "purpose": "Pydantic v2 schemas for structured data intelligence profiling."
+    },
+    {
+      "name": "StructuredObservation",
+      "file": "schemas/structured_intelligence.py",
+      "fields": [
+        "table_name",
+        "observation_type",
+        "observation_text",
+        "severity",
+        "is_llm_generated",
+        "affected_columns"
+      ],
+      "purpose": "Pydantic v2 schemas for structured data intelligence profiling."
+    },
+    {
+      "name": "StructuredTaxonomyLLMResponse",
+      "file": "schemas/structured_intelligence.py",
+      "fields": [
+        "table_label",
+        "table_description",
+        "column_labels"
+      ],
+      "purpose": "Pydantic v2 schemas for structured data intelligence profiling."
+    }
+  ]
+}

@@ -6,7 +6,7 @@ Built with **Next.js 15 (App Router)** for static export to GitHub Pages.
 
 ## Status
 
-v1.0.0 — Full 14-chapter architecture spec, agent catalog, schema registry, harness reference, and 16 pay-practice playbooks ported.
+v1.1.0 — Holistic documentation: 14-chapter architecture spec, 54-agent code-driven catalog, 80-schema registry, dynamic harness reference, and 16 fully-implemented pay-practice playbooks.
 
 ## Local development
 

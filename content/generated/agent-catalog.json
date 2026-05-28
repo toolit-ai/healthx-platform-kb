@@ -1,0 +1,328 @@
+{
+  "agents": [
+    {
+      "name": "ChartRendererAgent",
+      "graph": "deep_dive_report",
+      "purpose": "builds SVG charts for each practice section.",
+      "source_file": "nodes/reports/chart_renderer.py"
+    },
+    {
+      "name": "CitationBinderAgent",
+      "graph": "deep_dive_report",
+      "purpose": "binds document citations to claims.",
+      "source_file": "nodes/reports/citation_binder.py"
+    },
+    {
+      "name": "HTMLRendererAgent",
+      "graph": "deep_dive_report",
+      "purpose": "renders final self-contained deep-dive HTML report.",
+      "source_file": "nodes/reports/html_renderer.py"
+    },
+    {
+      "name": "NarrativeGeneratorAgent",
+      "graph": "deep_dive_report",
+      "purpose": "LLM-generated section narratives with guardrails.",
+      "source_file": "nodes/reports/narrative_generator.py"
+    },
+    {
+      "name": "ReportQAAgent",
+      "graph": "deep_dive_report",
+      "purpose": "validates all claims before marking report ready.",
+      "source_file": "nodes/reports/report_qa.py"
+    },
+    {
+      "name": "SectionPlannerAgent",
+      "graph": "deep_dive_report",
+      "purpose": "plans report sections from BL-EDA evidence.",
+      "source_file": "nodes/reports/section_planner.py"
+    },
+    {
+      "name": "TableRendererAgent",
+      "graph": "deep_dive_report",
+      "purpose": "builds HTML table specs for each practice section.",
+      "source_file": "nodes/reports/table_renderer.py"
+    },
+    {
+      "name": "BuildExecutiveReportAgent",
+      "graph": "executive_report",
+      "purpose": "Executive report graph — generates from available deep-dive evidence.",
+      "source_file": "graphs/executive_report_graph.py"
+    },
+    {
+      "name": "BLBaselineEDAAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "fan-out worker, runs baseline threshold checks.",
+      "source_file": "nodes/bl_eda/baseline_eda.py"
+    },
+    {
+      "name": "BLCalculationVerificationAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "fan-out worker, verifies formula calculations.",
+      "source_file": "nodes/bl_eda/calculation_verification.py"
+    },
+    {
+      "name": "BLCheckPlanningAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "groups BL-EDA jobs by pay practice for fan-out.",
+      "source_file": "nodes/bl_eda/check_planning.py"
+    },
+    {
+      "name": "BLDQGateAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "advisory gate for DQ gate status before BL-EDA.",
+      "source_file": "nodes/bl_dq_gate.py"
+    },
+    {
+      "name": "BLEDAEvidenceAggregationAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "sequential, cross-practice synthesis after fan-in.",
+      "source_file": "nodes/bl_eda_evidence_aggregation.py"
+    },
+    {
+      "name": "BLEDAPersistenceAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "consolidate per-check finding refs into one result.",
+      "source_file": "nodes/bl_eda_persistence.py"
+    },
+    {
+      "name": "BLEDASummaryAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "generates LLM narrative summaries from BL-EDA findings.",
+      "source_file": "nodes/bl_eda_summary.py"
+    },
+    {
+      "name": "BLEDASynthesisAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "BL-EDA Synthesis node — Reasoning Model step triggered before BL-EDA checks begin.",
+      "source_file": "nodes/bl_eda/synthesis.py"
+    },
+    {
+      "name": "BLJobEvidenceCollectorAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "collects all finding refs for a job group.",
+      "source_file": "nodes/bl_eda/job_evidence_collector.py"
+    },
+    {
+      "name": "BLMappingReviewGateAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "pause gate when rules require human review.",
+      "source_file": "nodes/bl_mapping_review_gate.py"
+    },
+    {
+      "name": "BLReadinessAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "validates all gates before BL-EDA can proceed.",
+      "source_file": "nodes/bl_eda/readiness.py"
+    },
+    {
+      "name": "BLReportGenerationAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "generates HTML deep-dive report from BL-EDA results.",
+      "source_file": "nodes/bl_report_generation.py"
+    },
+    {
+      "name": "BLRuleDrivenEDAAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "fan-out worker, runs rule-driven checks per job group.",
+      "source_file": "nodes/bl_eda/rule_driven_eda.py"
+    },
+    {
+      "name": "BLRuleProfileAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "profiles rules for coverage gaps, contradictions, CBA conflicts.",
+      "source_file": "nodes/bl_eda/rule_profile.py"
+    },
+    {
+      "name": "BLRuleTestabilityAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "sequential, classifies each normalized rule's testability.",
+      "source_file": "nodes/bl_rule_testability.py"
+    },
+    {
+      "name": "BLScenarioModelingAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "fan-out worker, runs BSMH default scenario models.",
+      "source_file": "nodes/bl_eda/scenario_modeling.py"
+    },
+    {
+      "name": "BLSegmentAnalysisAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "fan-out worker, runs segment variance checks with ROC note.",
+      "source_file": "nodes/bl_eda/segment_analysis.py"
+    },
+    {
+      "name": "BLStackingVerificationAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "fan-out worker, checks prohibited pay code stacking.",
+      "source_file": "nodes/bl_eda/stacking_verification.py"
+    },
+    {
+      "name": "BLTemporalSequenceAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "fan-out worker, checks temporal sequences.",
+      "source_file": "nodes/bl_eda/temporal_sequence.py"
+    },
+    {
+      "name": "BLThresholdVerificationAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "fan-out worker, verifies threshold compliance.",
+      "source_file": "nodes/bl_eda/threshold_verification.py"
+    },
+    {
+      "name": "BLValidationPlanningAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "builds BL-EDA workplan from normalized rules.",
+      "source_file": "nodes/bl_validation_planning.py"
+    },
+    {
+      "name": "BLValidValuesAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "fan-out worker, checks valid value compliance.",
+      "source_file": "nodes/bl_eda/valid_values.py"
+    },
+    {
+      "name": "CompleteRunAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "marks run as completed in the ledger.",
+      "source_file": "nodes/complete_run.py"
+    },
+    {
+      "name": "CoreEDAProfileAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "per-table EDA profile worker and fan-in aggregator.",
+      "source_file": "nodes/core_eda_profile.py"
+    },
+    {
+      "name": "DataCatalogAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "loads CSV/XLSX files into Parquet artifacts.",
+      "source_file": "nodes/data_catalog.py"
+    },
+    {
+      "name": "DataQualityValidationAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "per-table DQ checks worker and fan-in gate node.",
+      "source_file": "nodes/dq_validation.py"
+    },
+    {
+      "name": "DocIngestionWorker",
+      "graph": "validation_and_bl_eda",
+      "purpose": "per-document worker and fan-in aggregator.",
+      "source_file": "nodes/document_ingestion.py"
+    },
+    {
+      "name": "DocLLMWorker",
+      "graph": "validation_and_bl_eda",
+      "purpose": "per-document LLM rule extraction worker and fan-in.",
+      "source_file": "nodes/document_llm_processing.py"
+    },
+    {
+      "name": "DocumentIngestionAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "per-document worker and fan-in aggregator.",
+      "source_file": "nodes/document_ingestion.py"
+    },
+    {
+      "name": "DocumentLLMProcessingAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "per-document LLM rule extraction worker and fan-in.",
+      "source_file": "nodes/document_llm_processing.py"
+    },
+    {
+      "name": "DocumentProcessingQualityGateAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "sequential quality gate after all LLM workers.",
+      "source_file": "nodes/document_quality_gate.py"
+    },
+    {
+      "name": "DocumentRAGIndexAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "indexes document chunks into Qdrant.",
+      "source_file": "nodes/document_rag_index.py"
+    },
+    {
+      "name": "DQValidationWorker",
+      "graph": "validation_and_bl_eda",
+      "purpose": "per-table DQ checks worker and fan-in gate node.",
+      "source_file": "nodes/dq_validation.py"
+    },
+    {
+      "name": "EDAProfileWorker",
+      "graph": "validation_and_bl_eda",
+      "purpose": "per-table EDA profile worker and fan-in aggregator.",
+      "source_file": "nodes/core_eda_profile.py"
+    },
+    {
+      "name": "ExportPackagingAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "bundles all artifacts for export.",
+      "source_file": "nodes/export_packaging.py"
+    },
+    {
+      "name": "InitializeRunAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "creates workspace and records initial ledger events.",
+      "source_file": "nodes/initialize_run.py"
+    },
+    {
+      "name": "IntakeAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "validates input paths, infers document metadata, builds manifest.",
+      "source_file": "nodes/intake.py"
+    },
+    {
+      "name": "PayPolicyExtractionAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "extracts pay provisions from all documents for a run.",
+      "source_file": "nodes/pay_policy_extraction.py"
+    },
+    {
+      "name": "PublishCorpusReadyAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "fires corpus_ready or corpus_partial event.",
+      "source_file": "nodes/publish_corpus_ready.py"
+    },
+    {
+      "name": "RelationshipValidationAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "cross-table relationship checks (sequential).",
+      "source_file": "nodes/relationship_validation.py"
+    },
+    {
+      "name": "RuleNormalizationAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "fan-out per rule batch, deterministic normalization.",
+      "source_file": "nodes/rule_normalization.py"
+    },
+    {
+      "name": "RuleNormalizationWorker",
+      "graph": "validation_and_bl_eda",
+      "purpose": "fan-out per rule batch, deterministic normalization.",
+      "source_file": "nodes/rule_normalization.py"
+    },
+    {
+      "name": "SemanticMappingAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "fan-out per 20-rule batch, LLM-based concept mapping.",
+      "source_file": "nodes/semantic_mapping.py"
+    },
+    {
+      "name": "SemanticMappingWorker",
+      "graph": "validation_and_bl_eda",
+      "purpose": "fan-out per 20-rule batch, LLM-based concept mapping.",
+      "source_file": "nodes/semantic_mapping.py"
+    },
+    {
+      "name": "StructuredDataProfilingAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "post-processes Phase 2 artifacts.",
+      "source_file": "nodes/structured_data_profiling.py"
+    },
+    {
+      "name": "WorkforceContextProfileAgent",
+      "graph": "validation_and_bl_eda",
+      "purpose": "Stage 5 payroll business context analysis.",
+      "source_file": "nodes/workforce_context_profile.py"
+    }
+  ]
+}

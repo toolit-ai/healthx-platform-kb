@@ -53,7 +53,7 @@ const phases = [
 export default function Home() {
   return (
     <main className="mx-auto max-w-4xl px-6 py-16">
-      <p className="font-mono text-xs uppercase tracking-widest text-muted">healthx · platform kb · v1.0.0</p>
+      <p className="font-mono text-xs uppercase tracking-widest text-muted">healthx · platform kb · v1.1.0</p>
       <h1 className="mt-3 text-4xl font-semibold tracking-tight">HealthX Agentic Knowledge Base</h1>
       <p className="mt-4 max-w-2xl text-lg text-muted">
         Architecture, agent catalog, AAA harness reference, and operational guides for the HealthX healthcare workforce
@@ -111,7 +111,7 @@ export default function Home() {
       </section>
 
       <footer className="mt-20 border-t border-line pt-6 text-xs text-muted">
-        v1.0.0 — Fully migrated architecture pack, agent catalog, harness reference, and playbook registry.
+        v1.1.0 — Holistic documentation refresh: all 16 playbooks fully implemented, dynamic harness, code-driven agent/schema registries.
         Python reference at <code className="font-mono">bsmh-agentic-system/</code> remains the execution source of truth.
       </footer>
     </main>

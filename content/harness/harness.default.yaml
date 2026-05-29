@@ -30,7 +30,7 @@ parallelism:
   rule_batch_size: 20
 
 gates:
-  semantic_mapping_review: { enabled: true, blocking: true }
+  semantic_mapping_review: { enabled: true, blocking: false }
   dq_gate_review:          { enabled: true, blocking: true }
   bl_eda_synthesis:        { enabled: true, blocking: true }
   report_qa_review:        { enabled: true, blocking: false }

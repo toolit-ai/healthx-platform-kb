@@ -81,7 +81,7 @@
     {
       "name": "BLEDAPersistenceAgent",
       "graph": "validation_and_bl_eda",
-      "purpose": "consolidate per-check finding refs into one result.",
+      "purpose": "no-op; findings persist via individual node writes.",
       "source_file": "nodes/bl_eda_persistence.py"
     },
     {

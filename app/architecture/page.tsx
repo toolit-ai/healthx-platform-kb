@@ -8,7 +8,7 @@ const chapters = [
   { id: '04_langgraph_graphs_and_state', title: '04 — LangGraph Graphs and State', desc: 'Graph topology, state design, parallelism, interrupts, checkpoints, eventing.' },
   { id: '05_agent_catalog_and_node_specs', title: '05 — Agent Catalog and Node Specifications', desc: 'Agent catalog with inputs, outputs, failure modes, LLM budget.' },
   { id: '06_document_intelligence_rule_extraction', title: '06 — Document Intelligence and Rule Extraction', desc: 'Document ingestion, LLM extraction, rule schema, semantic mapping, review gates.' },
-  { id: '07_bl_eda_engine_and_playbook_registry', title: '07 — BL-EDA Engine and Playbook Registry', desc: 'BL-EDA decision logic, pay-practice playbooks, check families, materiality scoring.' },
+  { id: '07_bl_eda_engine_and_playbook_registry', title: '07 — BL-EDA Engine and Playbook Registry', desc: 'BL-EDA decision logic, pay-practice playbooks, check families, evidence quality assessment.' },
   { id: '08_rag_status_chat_and_streamlit_ui', title: '08 — RAG, Status Chat, and Streamlit UI', desc: 'Document-only RAG, status chat, StageProgressService, corpus readiness.' },
   { id: '09_reporting_html_generation', title: '09 — Reporting and HTML Generation', desc: 'HTML report generation, SectionSpec, ClaimSpec, report QA, evidence lineage.' },
   { id: '10_data_contracts_storage_and_api', title: '10 — Data Contracts, Storage, and API', desc: 'Pydantic contracts, database stores, artifact paths, APIs, events, audit records.' },
